@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 type ButtonType = {
     name:string
@@ -6,13 +6,25 @@ type ButtonType = {
 }
 
 export const Button = (props:ButtonType)=> {
-    const onClickHandler =()=> {
+   let  [a, setA]=useState(1)
 
+    const SET = ()=> {
+        setA(++a)
+        console.log(a)
+    }
+
+    const SET_0 = ()=> {
+        setA(0)
+        console.log(a)
     }
     return (
         <div>
-            <button onClick={onClickHandler}>
+            {a}
+            <button onClick={SET}>
                 {props.name}
+            </button>
+            <button onClick={SET_0}>
+                {0}
             </button>
         </div>
     )
